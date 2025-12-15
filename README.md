@@ -284,3 +284,150 @@ In real financial environments:
 This case study shows how data systems can function as **financial controls**, not just reporting tools — enabling leadership to scale operations **without scaling risk**.
 
 ---
+
+This architecture mirrors how reconciliation evidence flows in real financial institutions:
+**operations generate signals → risk evaluates exposure → audit inspects controls**.
+
+### Logical Flow
+
+```
+┌────────────────────┐
+│  Payments System   │
+│  (Claims of Value) │
+└─────────┬──────────┘
+          │
+          │   Unstructured narrations
+          │   Amounts, dates, channels
+          ▼
+┌────────────────────┐
+│  Bank Statements   │
+│  (Evidence of Cash)│
+└─────────┬──────────┘
+          │
+          │   TF-IDF candidate generation
+          │   Multi-signal scoring
+          ▼
+┌────────────────────────────────┐
+│  Reconciliation Engine         │
+│                                │
+│ • Text normalization           │
+│ • Fuzzy matching               │
+│ • Confidence scoring           │
+│ • Classification logic         │
+└─────────┬──────────────────────┘
+          │
+          │   Confidence bands
+          │   Explainability notes
+          ▼
+┌────────────────────┐
+│  Operations Queue  │
+│                    │
+│ • Auto-close       │
+│ • Review required  │
+│ • Escalations      │
+└─────────┬──────────┘
+          │
+          │   Aggregated risk signals
+          ▼
+┌────────────────────┐
+│  Risk & Compliance │
+│                    │
+│ • Exposure metrics │
+│ • Control health   │
+│ • Policy tuning    │
+└─────────┬──────────┘
+          │
+          │   Full traceability
+          ▼
+┌────────────────────┐
+│  Audit & Assurance │
+│                    │
+│ • Row-level logic  │
+│ • Evidence review  │
+│ • Control testing  │
+└────────────────────┘
+```
+
+### Key Design Principle
+
+> **The same data serves three audiences without reinterpretation**:
+
+* Operations get queues
+* Risk gets exposure
+* Audit gets evidence
+
+No parallel systems. No narrative gaps.
+
+---
+
+## Control Framework Mapping (COSO)
+
+This project is explicitly designed as a **control system**, not an analytics experiment.
+
+Below is how the logic maps to recognized risk frameworks.
+
+---
+
+## COSO Internal Control Framework Mapping
+
+### Control Environment
+
+| COSO Principle             | How This Project Implements It                       |
+| -------------------------- | ---------------------------------------------------- |
+| Integrity & Ethical Values | Explicitly avoids forced matches and false certainty |
+| Accountability             | Every reconciliation decision is traceable           |
+| Risk Awareness             | Ambiguity is acknowledged, not hidden                |
+
+> Reconciliation outcomes are **defended**, not assumed.
+
+---
+
+### Risk Assessment
+
+| COSO Principle              | Implementation                                      |
+| --------------------------- | --------------------------------------------------- |
+| Identify Risks              | Missing settlements, over-refunds, unlinked refunds |
+| Analyze Likelihood & Impact | Confidence scores quantify uncertainty              |
+| Fraud Risk Assessment       | Refund timing, amount ratios, narration mismatch    |
+
+Risk is **measured continuously**, not discovered post-fact.
+
+---
+
+### Control Activities
+
+| Control                | Embedded Logic                           |
+| ---------------------- | ---------------------------------------- |
+| Preventive controls    | Auto-reconciliation thresholds           |
+| Detective controls     | Weak-match and high-risk classifications |
+| Segregation of duties  | Machine flags, humans decide             |
+| Authorization controls | Review queues for non-auto matches       |
+
+Controls are **policy-encoded**, not manual checklists.
+
+---
+
+### Information & Communication
+
+| COSO Requirement     | Delivery                    |
+| -------------------- | --------------------------- |
+| Relevant information | Signal-level explainability |
+| Timely communication | Operational queues          |
+| Clear reporting      | Executive summaries         |
+
+Outputs speak **business**, not model language.
+
+---
+
+### Monitoring Activities
+
+| Monitoring Type           | Evidence Produced             |
+| ------------------------- | ----------------------------- |
+| Ongoing monitoring        | Confidence distributions      |
+| Separate evaluations      | Audit-ready CSVs              |
+| Deficiency identification | Unmatched & high-risk volumes |
+
+Control effectiveness is **observable over time**.
+
+---
+

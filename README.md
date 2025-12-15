@@ -153,7 +153,7 @@ This creates **operational queues**, not noise.
 
 ## Audit-Friendly Outputs
 
-###`reconciliation_results_detailed.csv`
+### `reconciliation_results_detailed.csv`
 
 Row-level transparency:
 
@@ -165,7 +165,7 @@ No black boxes. Full traceability.
 
 ---
 
-###`reconciliation_summary.csv`
+### `reconciliation_summary.csv`
 
 Executive-level oversight:
 

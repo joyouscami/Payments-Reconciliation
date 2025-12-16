@@ -282,9 +282,6 @@ In real financial environments:
 * Defensibility is mandatory
 
 This case study shows how data systems can function as **financial controls**, not just reporting tools — enabling leadership to scale operations **without scaling risk**.
-
----
-
 This is a realistic prototype for small-to-medium businesses dealing with straightforward payment reconciliation. 
 It handles the core problems well: inconsistent data formats, timing mismatches, and imperfect matches. 
 However, enterprise systems handling high volumes would need additional features like real-time processing, multi-currency support, and deeper integration with accounting systems.

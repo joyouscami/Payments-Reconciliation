@@ -18,7 +18,7 @@ def setup_and_load_data():
     """Load refund and payment data with comprehensive error handling"""
     try:
         # Use relative path instead of hardcoded Windows path
-        data_dir = Path('./Payments_Reconciliation')
+        data_dir = Path('./Payments_Refunds')
         
         # Create timestamped output directory
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')

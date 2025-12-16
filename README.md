@@ -285,7 +285,9 @@ This case study shows how data systems can function as **financial controls**, n
 
 ---
 
-This is a realistic prototype for small-to-medium businesses dealing with straightforward payment reconciliation. It handles the core problems well: inconsistent data formats, timing mismatches, and imperfect matches. However, enterprise systems handling high volumes would need additional features like real-time processing, multi-currency support, and deeper integration with accounting systems.
+This is a realistic prototype for small-to-medium businesses dealing with straightforward payment reconciliation. 
+It handles the core problems well: inconsistent data formats, timing mismatches, and imperfect matches. 
+However, enterprise systems handling high volumes would need additional features like real-time processing, multi-currency support, and deeper integration with accounting systems.
 
 ---
 

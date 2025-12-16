@@ -12,13 +12,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 # -----------------------------
 # 1. Setup
 # -----------------------------
-data_dir = Path('C:/Revenue Leakage')
-out_dir = data_dir / 'outputs_v2'
+data_dir = Path('C:/Payments Reconciliation')
+out_dir = data_dir / 'outputs'
 out_dir.mkdir(exist_ok=True)
 
-payments = pd.read_csv(data_dir / 'payments_system_v2.csv', parse_dates=['payment_timestamp'])
-bank = pd.read_csv(data_dir / 'bank_statement_v2.csv', parse_dates=['bank_posting_timestamp'])
-refunds = pd.read_csv(data_dir / 'refunds_v2.csv', parse_dates=['refund_timestamp'])
+payments = pd.read_excel(data_dir / 'payments_system.xlsx', parse_dates=['payment_timestamp'])
+bank = pd.read_excel(data_dir / 'bank_statement.xlsx', parse_dates=['posting_date'])
+refunds = pd.read_excel(data_dir / 'refunds.xlsx', parse_dates=['refund_timestamp'])
 
 # -----------------------------
 # 2. Text normalization utilities
@@ -68,7 +68,7 @@ for i, pay_row in payments.iterrows():
         date_score = max(0, 1 - date_diff_days / 7)
 
         # Amount proximity score
-        amt_diff = abs(bank_row['net_amount'] - pay_row['amount'])
+        amt_diff = abs(bank_row['amount'] - pay_row['amount'])
         amt_score = max(0, 1 - (amt_diff / pay_row['amount']))
 
         # Narration similarity score
@@ -124,13 +124,13 @@ best_matches['recon_status'] = best_matches['confidence_score'].apply(classify)
 # -----------------------------
 # 7. Audit-friendly outputs
 # -----------------------------
-best_matches.to_csv(out_dir / 'reconciliation_results_detailed.csv', index=False)
+best_matches.to_excel(out_dir / 'reconciliation_results_detailed.xlsx', index=False)
 
 summary = best_matches.groupby('recon_status').agg(
     transaction_count=('payment_ref', 'count'),
     avg_confidence=('confidence_score', 'mean')
 ).reset_index()
 
-summary.to_csv(out_dir / 'reconciliation_summary.csv', index=False)
+summary.to_excel(out_dir / 'reconciliation_summary.xlsx', index=False)
 
 best_matches

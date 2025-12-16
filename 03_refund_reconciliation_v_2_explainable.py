@@ -12,12 +12,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 # -----------------------------
 # 1. Setup
 # -----------------------------
-data_dir = Path('C:/Revenue Leakage')
-out_dir = data_dir / 'outputs_v2'
+data_dir = Path('C:/Payments Reconciliation')
+out_dir = data_dir / 'outputs'
 out_dir.mkdir(exist_ok=True)
 
-payments = pd.read_csv(data_dir / 'payments_system_v2.csv', parse_dates=['payment_timestamp'])
-refunds = pd.read_csv(data_dir / 'refunds_v2.csv', parse_dates=['refund_timestamp'])
+payments = pd.read_excel(data_dir / 'payments_system.xlsx', parse_dates=['payment_timestamp'])
+refunds = pd.read_excel(data_dir / 'refunds.xlsx', parse_dates=['refund_timestamp'])
 
 # -----------------------------
 # 2. Normalization utilities
@@ -141,7 +141,7 @@ best_matches['explainability_note'] = np.select(
 # -----------------------------
 # 8. Outputs for audit & regulators
 # -----------------------------
-best_matches.to_csv(out_dir / 'refund_reconciliation_detailed.csv', index=False)
+best_matches.to_excel(out_dir / 'refund_reconciliation_detailed.xlsx', index=False)
 
 summary = best_matches.groupby('refund_status').agg(
     refund_count=('refund_ref', 'count'),
@@ -149,6 +149,6 @@ summary = best_matches.groupby('refund_status').agg(
     total_refund_amount=('refund_ratio', 'sum')
 ).reset_index()
 
-summary.to_csv(out_dir / 'refund_reconciliation_summary.csv', index=False)
+summary.to_excel(out_dir / 'refund_reconciliation_summary.xlsx', index=False)
 
 best_matches

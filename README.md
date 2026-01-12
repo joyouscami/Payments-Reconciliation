@@ -33,13 +33,13 @@ Those assumptions fail in reality.
 
 This project asks a different question:
 
-> **How do competent finance teams reconcile under ambiguity — and how can that judgement be encoded into defensible, auditable logic?**
+> **How do competent finance teams reconcile under ambiguity and how can that judgement be encoded into defensible, auditable logic?**
 
 ---
 
 ## Design Philosophy
 
-### Reconciliation Logic — How Human Teams Think, Encoded in Code
+### Reconciliation Logic - How Human Teams Think, Encoded in Code
 
 This system does **not** aim for perfect matching.
 It aims for **defensible confidence**.
@@ -136,7 +136,7 @@ Weights are:
 
 ---
 
-## Classification — Turning Scores Into Decisions
+## Classification - Turning Scores Into Decisions
 
 Binary outcomes are avoided.
 
@@ -180,7 +180,7 @@ Executive-level oversight:
 
 ## Refund Reconciliation (Higher Risk, Higher Standard)
 
-### Refund Logic — What Changes
+### Refund Logic - What Changes
 
 Refund reconciliation reverses the question:
 
@@ -246,14 +246,14 @@ Examples:
 * “Unusually late refund”
 * “Weak narration similarity”
 
-Scores are not interpreted — **reasons are stated**.
+Scores are not interpreted, **reasons are stated**.
 
 ---
 
 ## Refund Outputs
 
-* `refund_reconciliation_detailed.csv` — inspection-ready
-* `refund_reconciliation_summary.csv` — executive oversight
+* `refund_reconciliation_detailed.csv` - inspection-ready
+* `refund_reconciliation_summary.csv` - executive oversight
 
 Designed for:
 

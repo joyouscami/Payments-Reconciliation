@@ -6,7 +6,7 @@
 
 ## Overview
 
-This project simulates **real-world payment, bank, and refund reconciliation** in fragmented financial environments where:
+This project simulates **real-world payment (M-PESA), bank, and refund reconciliation** in fragmented financial environments where:
 
 * Transaction IDs do **not** align across systems
 * Narrations are manual, abbreviated, or rewritten
